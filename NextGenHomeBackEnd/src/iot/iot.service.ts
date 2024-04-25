@@ -88,6 +88,36 @@ export class IotService {
       },
     );
   }
+
+  changeFanSpeed(speed: string) {
+    const feed = 'aiot-fan';
+    this.client.publish(
+      `huynguyenducbao2003/feeds/${feed}`,
+      speed.toString(),
+      (err) => {
+        if (err) {
+          console.error('Error publishing message:', err);
+        } else {
+          console.log('Published message to ${feed}:', speed.toString());
+        }
+      },
+    );
+  }
+
+  openDoor(password: string) {
+    const feed = 'aiot-ai';
+    if (password == '123') {
+      this.client.publish(`huynguyenducbao2003/feeds/${feed}`, 'A', (err) => {
+        if (err) {
+          console.error('Error publishing message:', err);
+        } else {
+          console.log('Published message to ${feed}:', password.toString());
+        }
+      });
+    } else {
+      console.log('Wrong password!!!');
+    }
+  }
 }
 
 // what left to do is publish data to Adafruit via mqtt

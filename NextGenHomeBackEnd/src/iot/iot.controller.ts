@@ -19,4 +19,14 @@ export class IotController {
   changeAdaFruitColor(@Param('color') color: string): void {
     this.iotService.changeLEDcolor(color);
   }
+
+  @Post('/change_fan_speed/:speed')
+  changeAdaFruitFanSpeed(@Param('speed') speed: string): void {
+    this.iotService.changeFanSpeed(speed);
+  }
+
+  @Post('/open_door/:password')
+  openAdaFruitDoor(@Param('password') password: string): void {
+    this.iotService.openDoor(password);
+  }
 }
