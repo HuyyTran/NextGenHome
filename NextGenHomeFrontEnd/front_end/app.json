@@ -1,0 +1,39 @@
+{
+  "name": "YoloHomeReact",
+  "displayName": "yolohomereactnative",
+  "expo": {
+    "name": "YoloHomeReact",
+    "slug": "yolohomereactnative",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/image/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./src/assets/image/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/image/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.isayu.yolohomereactnative"
+    },
+    "web": {
+      "favicon": "./src/assets/image/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "989dd2db-cac3-4ca5-b8a6-bb2d055263a2"
+      }
+    },
+    "owner": "isayu"
+  }
+}
