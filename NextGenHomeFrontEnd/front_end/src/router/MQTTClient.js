@@ -1,13 +1,9 @@
 const mqtt = require('mqtt')
 
-const url = process.env.EXPO_PUBLIC_MQTT_BROKER_API + 
-            ':' + process.env.EXPO_PUBLIC_MQTT_BROKER_TCP_PORT
-            '/mqtt'
-/***
-    * Node.js
-    * This document explains how to use MQTT over TCP with both mqtt and mqtts protocols.
-    * EMQX's default port for mqtt connections is 1883, while for mqtts it is 8883.
-    */
+const url = process.env.EXPO_PUBLIC_MQTT_BROKER_API 
+
+const AIO_USERNAME = 'huynguyenducbao2003';
+const AIO_KEY = process.env.EXPO_PUBLIC_ADA_API_KEY;
 
 // Create an MQTT client instance
 const options = {
@@ -15,14 +11,24 @@ const options = {
   clean: true,
   connectTimeout: 4000,
   // Authentication
-  clientId: 'Next_Gen_Home_Client',
-  username: 'NGHTest',
-  password: 'NGHTest',
+  clientId: 'Next_Gen_Home_Front_End_Client',
+  username: AIO_USERNAME,
+  password: AIO_KEY,
 }
 
 const client  = mqtt.connect(url, options)
 
-const topics = ["test"]
+const topics =  
+[
+  'aiot-led',
+  'aiot-temp',
+  'aiot-humi', 
+  'aiot-light', 
+  'aiot-supporter', 
+  'aiot-ai',
+  'aiot-fan',
+  'aiot-ledcolor'
+];
 client.on('connect', function () {
   console.log('Connected')
   // Subscribe to a topic
@@ -30,7 +36,7 @@ client.on('connect', function () {
     client.subscribe(topic, function (err) {
       if (!err) {
         // Publish a message to a topic
-        client.publish('test', 'Hello mqtt')
+        console.log("Connected and subscribed to all topics");
       }
     })
   });
@@ -46,9 +52,5 @@ client.on('close', function () {
 // Receive messages
 client.on('message', function (topic, message) {
   // message is Buffer
-  console.log(message.toString())
+  console.log('Received data:', message.toString(), 'from [feed] <-', topic);
 })
-
-export default function publish(topic, message){
-  client.publish(topic, message)
-}
