@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, Modal, Button} from 'react-native';
+import { StyleSheet, View, Text} from 'react-native';
 import * as React from 'react';
 import {useState} from 'react';
 import {Switch} from 'react-native-paper';
@@ -27,7 +27,7 @@ export default function LightControlContainer(
     initialToggleState,
     initialLEDColor}
 ){
-    const [isEnabled, setIsEnabled] = useState(false);
+    const [isEnabled, setIsEnabled] = useState(initialToggleState ? initialToggleState : false);
     const [lampColor, setLampColor] = useState("#f8f8f8");
     const toggleSwitch = () => {
         setIsEnabled(previousState => !previousState);
@@ -37,10 +37,6 @@ export default function LightControlContainer(
         const hex = color.hex;
         setLampColor(hex);
         onLEDColorChange(hex);
-    }
-    if (initialLEDColor != undefined)
-    {
-        setIsEnabled(initialToggleState);
     }
     return (
         <View style={styles.container}>
