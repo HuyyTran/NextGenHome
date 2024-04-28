@@ -31,7 +31,7 @@ export default function AdjustGlobalState(arrivedTopic, messageData)
         break;
 
       case 'aiot-ledcolor':
-        store.dispatch(changeLightColor(messageData));
+        store.dispatch(changeLightColor("#" + messageData));
         break;
       case 'aiot-led':
         store.getState()

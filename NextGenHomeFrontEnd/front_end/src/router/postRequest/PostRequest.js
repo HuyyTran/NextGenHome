@@ -22,8 +22,6 @@ export default function PostRequest(
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({ key: 'value' }) // replace with your actual data
-    }).then((response) => response.json())
-    .then((responseJson) => { console.log('response:', responseJson); })
-    .catch((error) => { console.error(error); });;
+    });
     const call = post();
 }
