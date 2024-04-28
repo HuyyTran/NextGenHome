@@ -10,9 +10,10 @@ import FanControl from '../components/FanControl/FanControl';
 import HumidifierControl from '../components/HumidifierControl/HumidifierControl';
 import PurifierControl from '../components/PurifierControl/PurifierControl';
 import DoorControl from '../components/DoorControl/DoorControl';
-import { useLightColor, useLightToggle, 
-  useLightStrength, usePurifierTemperatureCelcius, useHumidityPercentage 
-, useFanStrength, useDoorToggle } from '../helper/globalState/globalState';
+import { selectLightColor, selectLightToggle, 
+  selectLightStrength, selectPurifierTemperatureCelcius, selectHumidityPercentage 
+, selectFanStrength, selectDoorToggle } from '../helper/globalState/GlobalState';
+import { useSelector } from 'react-redux'
 
 const styles = StyleSheet.create({
     container: {
@@ -54,15 +55,15 @@ const styles = StyleSheet.create({
 
 export default function HomePage() {
     const [isLoading, setLoading] = useState(true);
-    const [lightStrengthLux, setLightStrengthLux] = useLightStrength()
-    const [lightToggle, setLightToggle] = useLightToggle();
-    const [lightColor, setLightColor] = useLightColor();
-    const [humidityPercentage, setHumidityPercentage] = useHumidityPercentage();
-    const [fanStrength, setFanStrength] = useFanStrength();
-    const [purifierTemperatureCelcius, setPurifierTemperatureCelcius] = usePurifierTemperatureCelcius();
-    const [doorToggle, setDoorToggle] = useDoorToggle();
+    const lightStrengthLux = useSelector(selectLightStrength);
+    const lightToggle = useSelector(selectLightToggle);
+    const lightColor = useSelector(selectLightColor);
+    const humidityPercentage  = useSelector(selectHumidityPercentage);
+    const fanStrength = useSelector(selectFanStrength);
+    const purifierTemperatureCelcius = useSelector(selectPurifierTemperatureCelcius);
+    const doorToggle = useSelector(selectDoorToggle);
 
-
+    console.log(lightToggle);
     useEffect(() => {
       setTimeout(() => setLoading(false), 3000)
     }, [])

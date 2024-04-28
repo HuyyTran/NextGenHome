@@ -6,6 +6,11 @@ import NavBar from './src/components/NavBar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ConnectToAda, Disconnect } from './src/router/MQTTClient';
 import {useRef, useState, useEffect} from 'react'
+import { Provider } from 'react-redux';
+import store from './src/helper/ReduxStore';
+
+import AdjustGlobalState from './src/helper/AdjustGlobalState';
+import { client } from './src/router/MQTTClient';
 
 const styles = StyleSheet.create({
     container: {
@@ -40,15 +45,18 @@ export default function App() {
     };
   }, []);
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-    {    
-      <NavigationContainer styles={styles.container}>
-        {
-          <NavBar></NavBar>
-        }
-      </NavigationContainer>
-    }
-    </GestureHandlerRootView>
+    <Provider store={store}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+      {    
+        <NavigationContainer styles={styles.container}>
+          {
+            <NavBar></NavBar>
+          }
+        </NavigationContainer>
+      }
+      </GestureHandlerRootView>
+    </Provider>
+    
   );
 }
 

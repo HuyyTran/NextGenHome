@@ -27,8 +27,8 @@ export default function LightControlContainer(
     initialToggleState,
     initialLEDColor}
 ){
-    const [isEnabled, setIsEnabled] = useState(initialToggleState ? initialToggleState : false);
-    const [lampColor, setLampColor] = useState("#f8f8f8");
+    const [isEnabled, setIsEnabled] = useState(initialToggleState);
+    const [lampColor, setLampColor] = useState(initialLEDColor);
     const toggleSwitch = () => {
         setIsEnabled(previousState => !previousState);
         onLightChange(!isEnabled);
@@ -37,6 +37,14 @@ export default function LightControlContainer(
         const hex = color.hex;
         setLampColor(hex);
         onLEDColorChange(hex);
+    }
+    if (initialToggleState !== isEnabled)
+    {
+        setIsEnabled(initialToggleState);
+    }
+    if (initialLEDColor !== lampColor)
+    {
+        setLampColor(initialLEDColor);
     }
     return (
         <View style={styles.container}>

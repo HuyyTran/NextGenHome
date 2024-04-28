@@ -49,8 +49,9 @@ export default function LightingControl(
 {
     if (lightStrength == undefined)
     {
-        lightStrength = 50;
+        initialToggleState = 50;
     }
+    console.log("initialToggleState = " + initialToggleState);
     return (
         <View style={styles.container}>
             <View style={styles.sub_container}>
