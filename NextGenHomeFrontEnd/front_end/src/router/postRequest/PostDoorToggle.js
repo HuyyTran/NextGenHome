@@ -1,10 +1,10 @@
 import { doorOpenRoute } from "../APIRoute";
 import PostRequest from "./PostRequest";
 
-export default async function PostDoorToggle(isEnable){
-    console.log("Door Toggle Changed to:", isEnable);
+export default async function PostDoorToggle(password){
+    console.log("Door Toggle Changed to:", password);
     //Value to send to backend server
-    const sendData = isEnable ? "A" : "B";
+    const sendData = password;
     try {
         PostRequest(
             doorOpenRoute,

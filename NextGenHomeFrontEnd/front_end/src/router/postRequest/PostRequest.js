@@ -3,11 +3,27 @@ export default function PostRequest(
     sendData
 )
 {
+    let newSendData = "";
+    if (sendData === undefined)
+    {
+        newSendData = ""
+    }
+    else{
+        newSendData = "/" + sendData
+    }
     const apiUrl = process.env.EXPO_PUBLIC_SERVER_API_URL;
-    const request_url = apiUrl + requestRoute + sendData;
+    const request_url = apiUrl + requestRoute + newSendData;
     console.log(request_url);
     const post = () => fetch(request_url, {
         method: 'POST',
-    });
+        mode: 'cors',
+        redirect: 'follow',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ key: 'value' }) // replace with your actual data
+    }).then((response) => response.json())
+    .then((responseJson) => { console.log('response:', responseJson); })
+    .catch((error) => { console.error(error); });;
     const call = post();
 }

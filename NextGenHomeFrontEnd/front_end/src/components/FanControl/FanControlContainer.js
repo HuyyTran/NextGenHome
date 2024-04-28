@@ -34,6 +34,11 @@ export default function FanControlContainer(
     const progress = useSharedValue(initialFanStrength);
     const min = useSharedValue(0);
     const max = useSharedValue(100);
+    if (progress.value !== initialFanStrength)
+    {
+        progress.value = initialFanStrength;
+    }
+    
     return (
         <View style={styles.container}>
             <Slider
@@ -42,6 +47,7 @@ export default function FanControlContainer(
                 progress={progress}
                 minimumValue={min}
                 maximumValue={max}
+                step={max-min}
                 sliderHeight={15}
                 thumbWidth={25}
                 onSlidingComplete = {onFanStrengthChange}

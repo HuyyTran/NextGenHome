@@ -5,6 +5,8 @@ import * as React from 'react';
 import LightingControl from '../components/LightingControl/LightingControl';
 import PostColorChange from '../router/postRequest/PostColorChange';
 import PostLightChange from '../router/postRequest/PostLightSwitch';
+import PostFanChange from '../router/postRequest/PostFanChange';
+import PostDoorToggle from '../router/postRequest/PostDoorToggle';
 import BedroomBG from '../constants/BedroomBG';
 import FanControl from '../components/FanControl/FanControl';
 import HumidifierControl from '../components/HumidifierControl/HumidifierControl';
@@ -121,10 +123,12 @@ export default function HomePage() {
             <FanControl
               deviceName="Fan"
               initialFanStrength={fanStrength}
+              onFanStrengthChange={PostFanChange}
             ></FanControl>
             <DoorControl
               deviceName="Door Lock"
               initialToggleState={doorToggle}
+              onToggleChange={PostDoorToggle}
             ></DoorControl>
           </ScrollView>
           <StatusBar style="auto" />

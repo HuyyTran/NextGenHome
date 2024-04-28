@@ -2,7 +2,7 @@ import { fanStrengthRoute } from "../APIRoute";
 import PostRequest from "./PostRequest";
 
 export default async function PostFanChange(value){
-    const sendData = value; 
+    const sendData = Math.round(value);
     console.log("Fan Strength change to", sendData);
     try {
         PostRequest(

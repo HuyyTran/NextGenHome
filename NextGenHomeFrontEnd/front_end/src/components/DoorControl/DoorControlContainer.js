@@ -98,7 +98,7 @@ export default function DoorControlContainer(
         check_res = AuthChecker(password)
         if (check_res)
         {
-            //onToggleChange()
+            onToggleChange(password)
             setIsEnabled(previousState => !previousState);
             openModal("Door opened");
         }
