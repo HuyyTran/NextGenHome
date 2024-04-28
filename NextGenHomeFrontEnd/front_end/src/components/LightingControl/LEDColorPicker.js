@@ -45,14 +45,13 @@ export default function LEDColorPicker({onColorChange, initialLEDColor}) {
     const [showModal, setShowModal] = useState(false);
 
     const onPickedColor = (color) => {
-        console.log(color.hex);
         pickerRef.current = color.hex;
         onColorChange(color);
     }
     
     if (initialLEDColor != undefined)
     {
-        console.log("1" + initialLEDColor);
+        console.log("initcolor: " + initialLEDColor);
         pickerRef.current = colorKit.HEX(initialLEDColor);
     }
     return (
