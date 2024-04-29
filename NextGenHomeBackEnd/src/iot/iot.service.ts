@@ -2,6 +2,7 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import * as mqtt from 'mqtt';
+import { AiotHumiData, AiotLightData, AiotTempData } from './iot.model';
 
 //OnModuleInit will help connect to server right after yarn start:dev,
 //but i will use connect() in controller
@@ -9,12 +10,9 @@ import * as mqtt from 'mqtt';
 @Injectable()
 export class IotService {
   private client: mqtt.MqttClient;
+  // private temps: AiotTempData[] = [];
 
   constructor(private configService: ConfigService) {}
-
-  //   onModuleInit() {
-  //     this.connect();
-  //   }
 
   connect() {
     const username = this.configService.get<string>('ADAFRUIT_IO_USERNAME');
@@ -117,6 +115,75 @@ export class IotService {
     } else {
       console.log('Wrong password!!!');
     }
+  }
+
+  async getTemperatureData(): Promise<AiotTempData[]> {
+    const url =
+      'https://io.adafruit.com/api/v2/huynguyenducbao2003/feeds/aiot-temp/data';
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      console.error(`HTTP error! status: ${response.status}`);
+      return;
+    }
+
+    const temp_data: AiotTempData[] = await response.json();
+    const modify_data = [];
+    for (const item of temp_data) {
+      modify_data.push({
+        id: item.id,
+        value: item.value,
+        created_epoch: item.created_epoch,
+      });
+    }
+    // console.log('Temperature data:', temp_data[0].id);
+    return modify_data;
+  }
+
+  async getHumidityData(): Promise<AiotHumiData[]> {
+    const url =
+      'https://io.adafruit.com/api/v2/huynguyenducbao2003/feeds/aiot-humi/data';
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      console.error(`HTTP error! status: ${response.status}`);
+      return;
+    }
+
+    const temp_data: AiotTempData[] = await response.json();
+    const modify_data = [];
+    for (const item of temp_data) {
+      modify_data.push({
+        id: item.id,
+        value: item.value,
+        created_epoch: item.created_epoch,
+      });
+    }
+    // console.log('Temperature data:', temp_data[0].id);
+    return modify_data;
+  }
+
+  async getLightData(): Promise<AiotLightData[]> {
+    const url =
+      'https://io.adafruit.com/api/v2/huynguyenducbao2003/feeds/aiot-light/data';
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      console.error(`HTTP error! status: ${response.status}`);
+      return;
+    }
+
+    const temp_data: AiotTempData[] = await response.json();
+    const modify_data = [];
+    for (const item of temp_data) {
+      modify_data.push({
+        id: item.id,
+        value: item.value,
+        created_epoch: item.created_epoch,
+      });
+    }
+    // console.log('Temperature data:', temp_data[0].id);
+    return modify_data;
   }
 }
 

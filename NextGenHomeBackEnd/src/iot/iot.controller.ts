@@ -1,4 +1,4 @@
-import { Controller, Param, Post } from '@nestjs/common';
+import { Controller, Get, Param, Post } from '@nestjs/common';
 import { IotService } from './iot.service';
 
 @Controller('iot')
@@ -28,5 +28,20 @@ export class IotController {
   @Post('/open_door/:password')
   openAdaFruitDoor(@Param('password') password: string): void {
     this.iotService.openDoor(password);
+  }
+
+  @Get('/get_temp_data')
+  async getTemperatureData() {
+    return this.iotService.getTemperatureData();
+  }
+
+  @Get('/get_humi_data')
+  async getHumidityData() {
+    return this.iotService.getHumidityData();
+  }
+
+  @Get('/get_light_data')
+  async getLightData() {
+    return this.iotService.getLightData();
   }
 }
