@@ -22,42 +22,26 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
     },
     title: {
-        flex: 1,
+        flex: 0.3,
         fontSize: 16,
         textAlign: 'left',
         marginTop: 20,
         marginHorizontal: 25,
         color: '#F8F8F8',
     },
-    number: {
-        flex: 0.8,
-        fontSize: 25,
-        textAlign: 'left',
-        marginTop: 20,
-        marginHorizontal: 15,
-        color: '#F8F8F8',
-    },
 })
 export default function LightingControl(
     {deviceName, 
-    lightStrength,
     onLightChange,
     onLEDColorChange,
     initialToggleState,
     initialLEDColor}
 )
 {
-    if (lightStrength == undefined)
-    {
-        initialToggleState = 50;
-    }
     console.log("initialToggleState = " + initialToggleState);
     return (
         <View style={styles.container}>
-            <View style={styles.sub_container}>
-                <Text style={styles.title}>{deviceName}</Text>
-                <Text style={styles.number}>{lightStrength} LX</Text>
-            </View>
+            <Text style={styles.title}>{deviceName}</Text>
             <LightControlContainer 
                 onLightChange={onLightChange}
                 onLEDColorChange={onLEDColorChange}

@@ -36,7 +36,10 @@ export default function DoorControl(
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{deviceName}</Text>
-            <DoorControlContainer></DoorControlContainer>
+            <DoorControlContainer
+            initialToggleState={initialToggleState}
+            onToggleChange={onToggleChange}
+            ></DoorControlContainer>
         </View>
     )
 }

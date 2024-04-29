@@ -51,7 +51,7 @@ export default function DoorControlContainer(
         initialToggleState
     }
 ) {
-    const [isEnabled, setIsEnabled] = useState(false);
+    const [isEnabled, setIsEnabled] = useState(initialToggleState);
     // State variable to hold the password 
     const [password, setPassword] = useState(''); 
 
@@ -61,10 +61,6 @@ export default function DoorControlContainer(
     const openModal = (text) => {
         setModalText(text)
         setShowModal(true)
-    }
-    if (initialToggleState !== undefined)
-    {
-        setIsEnabled(initialToggleState)
     }
     const animated = new Animated.Value(1);
     const fadeIn = () => {

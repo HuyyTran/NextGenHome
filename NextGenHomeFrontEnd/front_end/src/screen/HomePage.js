@@ -12,6 +12,7 @@ import FanControl from '../components/FanControl/FanControl';
 import HumidifierControl from '../components/HumidifierControl/HumidifierControl';
 import PurifierControl from '../components/PurifierControl/PurifierControl';
 import DoorControl from '../components/DoorControl/DoorControl';
+import LightStrengthCard from '../components/LightStrength/LightStregthCard';
 import { selectLightColor, selectLightToggle, 
   selectLightStrength, selectPurifierTemperatureCelcius, selectHumidityPercentage 
 , selectFanStrength, selectDoorToggle } from '../helper/globalState/GlobalState';
@@ -112,6 +113,11 @@ export default function HomePage() {
                 Temperature={purifierTemperatureCelcius}
               ></PurifierControl>
             </View>
+            <LightStrengthCard
+              deviceName="Illuminance" 
+              initialLightStrength={lightStrengthLux}
+            >
+            </LightStrengthCard>
             <LightingControl 
                 deviceName="LED Light" 
                 lightStrength={lightStrengthLux}

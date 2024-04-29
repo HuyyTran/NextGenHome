@@ -38,14 +38,6 @@ export default function LightControlContainer(
         setLampColor(hex);
         onLEDColorChange(hex);
     }
-    if (initialToggleState !== isEnabled)
-    {
-        setIsEnabled(initialToggleState);
-    }
-    if (initialLEDColor !== lampColor)
-    {
-        setLampColor(initialLEDColor);
-    }
     return (
         <View style={styles.container}>
             <Switch 
