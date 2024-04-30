@@ -10,7 +10,6 @@ export default async function GetRequest(requestRoute){
         },
     });
     const response = await get()
-    console.log("response: " + response);
     if (!response.ok) {
         console.error(`HTTP error! status: ${response.status}`);
         return;
