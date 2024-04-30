@@ -9,8 +9,7 @@ import {useRef, useState, useEffect} from 'react'
 import { Provider } from 'react-redux';
 import store from './src/helper/ReduxStore';
 
-import AdjustGlobalState from './src/helper/AdjustGlobalState';
-import { client } from './src/router/MQTTClient';
+import GetDataTimeInterval from './src/helper/GetDataTimeInterval';
 
 const styles = StyleSheet.create({
     container: {
@@ -44,6 +43,9 @@ export default function App() {
       subscription.remove();
     };
   }, []);
+  useEffect(() => {
+    GetDataTimeInterval()
+  }, [])
   return (
     <Provider store={store}>
       <GestureHandlerRootView style={{ flex: 1 }}>
