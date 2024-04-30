@@ -8,6 +8,9 @@ const initialState = {
     fanStrength: 0,
     purifierTemperatureCelcius: 24,
     doorToggle: false,
+    humidList: [],
+    temperList: [],
+    lightList: [],
 }
 export const globalStateSlice = createSlice({
     name: 'globalState',
@@ -35,13 +38,22 @@ export const globalStateSlice = createSlice({
         changeDoorToggle: (state, action) => {
             state.doorToggle = action.payload
         },
+        changeHumidList: (state, action) => {
+            state.humidList = action.payload
+        },
+        changeLightList: (state, action) => {
+            state.lightList = action.payload
+        },
+        changeTemperList: (state, action) => {
+            state.temperList = action.payload
+        },
     },
 })
 
 export const {changeLightStrength, changeLightToggle,
     changeLightColor,changeHumidityPercentage,
     changeFanStrength,changePurifierTemperatureCelcius,
-    changeDoorToggle
+    changeDoorToggle, changeHumidList, changeLightList, changeTemperList
 } = globalStateSlice.actions
 
 export const selectLightStrength = state => state.lightStrengthLux
@@ -51,5 +63,8 @@ export const selectHumidityPercentage = state => state.humidityPercentage
 export const selectFanStrength = state => state.fanStrength
 export const selectPurifierTemperatureCelcius = state => state.purifierTemperatureCelcius
 export const selectDoorToggle = state => state.doorToggle
+export const selectHumidList = state => state.humidList
+export const selectTemperList = state => state.temperList
+export const selectLightList = state => state.lightList
 
 export default globalStateSlice.reducer
