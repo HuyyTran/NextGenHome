@@ -5,8 +5,7 @@ import { selectTemperList } from "../../helper/globalState/GlobalState";
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        width: "100%",
+        flex: 0.6,
         height: 500,
         flexDirection: "column",
         justifyContent: "space-around",
@@ -25,13 +24,14 @@ const styles = StyleSheet.create({
 });
 export default function TemperatureChart() {
     const temperData = useSelector(selectTemperList);
+    // console.log(temperData);
     return (
         <View styles ={styles.container}>
             <DataLineChart
                 chartData={temperData}
                 chartSuffix="°C"
             />
-            <Text style={styles.title}>Humidity</Text>
+            <Text style={styles.title}>Temperature</Text>
         </View>
     )
 }

@@ -29,7 +29,6 @@ export default function DataLineChart({ chartData, chartSuffix}) {
         <View 
         style={
             {
-                flex: 1,
                 justifyContent: "center",
                 alignItems: "center",
                 height: 250,
@@ -39,9 +38,7 @@ export default function DataLineChart({ chartData, chartSuffix}) {
         }>  
             <LineChart
                 isAnimated
-                animateOnDataChange
                 animationDuration={1500}
-                onDataChangeAnimationDuration={1500}
                 width={230}
                 initialSpacing={0}
                 data={chartData}

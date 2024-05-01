@@ -5,8 +5,7 @@ import { selectHumidList } from "../../helper/globalState/GlobalState";
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        width: "100%",
+        flex: 0.6,
         height: 500,
         flexDirection: "column",
         justifyContent: "space-around",
@@ -25,7 +24,7 @@ const styles = StyleSheet.create({
 });
 export default function HumidChart() {
     const humidData = useSelector(selectHumidList);
-    console.log(humidData);
+    // console.log(humidData);
     return (
         <View styles ={styles.container}>
             <DataLineChart
