@@ -44,7 +44,7 @@ export default function App() {
     };
   }, []);
   useEffect(() => {
-    GetDataTimeInterval()
+      GetDataTimeInterval()
   }, [])
   return (
     <Provider store={store}>

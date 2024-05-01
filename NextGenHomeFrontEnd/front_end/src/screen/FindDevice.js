@@ -1,7 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import * as React from 'react';
-
+import { useState, useEffect } from 'react';
+import DataLineChart from '../components/Chart/DataLineChart';
+import { useSelector } from 'react-redux';
+import { selectHumidList, selectTemperList, selectLightList } from '../helper/globalState/GlobalState';
+import HumidChart from '../components/Chart/HumidChart';
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -28,7 +31,8 @@ export default function FindDevice() {
       <View style={styles.container}>
         <Text style={styles.title}>Find Device</Text>
         <View style={styles.container}>
-          <Text style={{ color: "#f8f8f8" }}>This is Find Device screen!</Text>
+            <HumidChart
+            />
             <StatusBar style="auto" />
         </View>
       </View>

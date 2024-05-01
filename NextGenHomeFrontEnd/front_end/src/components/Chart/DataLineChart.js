@@ -1,35 +1,29 @@
-import { StyleSheet, View, Text, TextInput } from "react-native";
+import { StyleSheet, View, Text, TextInput, ActivityIndicator } from "react-native";
 import * as React from "react";
 import { useState } from "react";
 import { LineChart } from "react-native-gifted-charts";
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        width: "100%",
-        height: 500,
-        flexDirection: "column",
-        justifyContent: "space-around",
-        alignItems: "center",
-        backgroundColor: "#282424",
-        borderWidth: 1,
-        borderRadius: 32,
-    },
-    title: {
-        flex: 1,
-        fontSize: 25,
-        textAlign: "auto",
-        paddingTop:20,
-        color: "#F8F8F8",
-    },
-});
-
-export default function DataLineChart({ chartData }) {
+export default function DataLineChart({ chartData, chartSuffix}) {
     let largestValue = 0
+    console.log(chartData);
     for (value in chartData) {
         if (chartData[value].value > largestValue) {
             largestValue = chartData[value].value
         }
+    }
+    if (chartData.length === 0) {
+      return (
+          <View style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            height: 250,
+            width: 300,
+            paddingTop: 50
+        }}>
+            <ActivityIndicator size="large" color="#FFB267" />
+          </View>
+        )
     }
     return (
         <View 
@@ -44,25 +38,22 @@ export default function DataLineChart({ chartData }) {
             }
         }>  
             <LineChart
+                isAnimated
+                animateOnDataChange
+                animationDuration={1500}
+                onDataChangeAnimationDuration={1500}
                 width={230}
                 initialSpacing={0}
                 data={chartData}
                 yAxisTextStyle={{ color: "#F8F8F888" }}
+                yAxisLabelSuffix = {chartSuffix}
                 spacing={15}
                 thickness={5}
                 maxValue={largestValue*1.5}
-                showValuesAsDataPointsText
                 focusEnabled
-                showStripOnFocus
-                showTextOnFocus
                 hideDataPoints
                 yAxisColor="#F8F8F888"
-                animateOnDataChange
-                animationDuration={1000}
-                onDataChangeAnimationDuration={300}
                 lineGradient
-                scrollAnimation
-                isAnimated
                 hideRules
                 showVerticalLines
                 verticalLinesColor="#FABA6744"
@@ -95,7 +86,7 @@ export default function DataLineChart({ chartData }) {
                             backgroundColor: "white",
                         }}>
                         <Text style={{ fontWeight: "bold", textAlign: "center" }}>
-                            {items[0].value}
+                            {items[0].value + " " + chartSuffix}
                         </Text>
                         <Text
                             style={{
