@@ -5,6 +5,4 @@ const store = configureStore({
     reducer: globalStateSlice.reducer
 });
 
-store.subscribe(() => console.log(store.getState()))
-
 export default store;

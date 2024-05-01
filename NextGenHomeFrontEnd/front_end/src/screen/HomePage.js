@@ -17,7 +17,9 @@ import { selectLightColor, selectLightToggle,
   selectLightStrength, selectPurifierTemperatureCelcius, selectHumidityPercentage 
 , selectFanStrength, selectDoorToggle } from '../helper/globalState/GlobalState';
 import { useSelector } from 'react-redux'
-
+import HumidChart from '../components/Chart/HumidChart';
+import LightStrengthChart from '../components/Chart/LightStrengthChart';
+import TemperatureChart from '../components/Chart/TemperatureChart';
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -57,7 +59,6 @@ const styles = StyleSheet.create({
 
 
 export default function HomePage() {
-    const [isLoading, setLoading] = useState(true);
     const lightStrengthLux = useSelector(selectLightStrength);
     const lightToggle = useSelector(selectLightToggle);
     const lightColor = useSelector(selectLightColor);
@@ -67,19 +68,7 @@ export default function HomePage() {
     const doorToggle = useSelector(selectDoorToggle);
 
     console.log(lightToggle);
-    useEffect(() => {
-      setTimeout(() => setLoading(false), 3000)
-    }, [])
-    if (isLoading)
-    {
-      return (
-          <View style={[styles.container, styles.horizontal]}>
-            <ActivityIndicator size="large" color="#FFB267" />
-          </View>
-        )
-    }
-    else {
-      return (
+    return(
         <View style={styles.container}>
           <Image
               style={styles.image}
@@ -141,4 +130,3 @@ export default function HomePage() {
         </View>
       );
     }
-  }
