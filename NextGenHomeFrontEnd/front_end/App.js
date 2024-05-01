@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, AppState} from 'react-native';
+import { StyleSheet, AppState, View, ActivityIndicator} from 'react-native';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import NavBar from './src/components/NavBar';
@@ -22,23 +22,27 @@ const styles = StyleSheet.create({
 
 export default function App() {
   const appState = useRef(AppState.currentState);
+  const [isLoading, setLoading] = useState(true);
   useEffect(() => {
-    const subscription = AppState.addEventListener('change', nextAppState => {
+    const subscription = AppState.addEventListener('change', (nextAppState) => {
       appState.current = nextAppState;
       if (
-        appState.current === "inactive"
+        appState.current !== "active"
       ) {
         console.log('App has come to the foreground!');
         Disconnect()
+        setLoading(true);
       }
       else if (
         appState.current === "active"
       ) {
         ConnectToAda()
+        setTimeout(() => setLoading(false), 3000);
       }
       console.log('AppState', appState.current);
     });
     ConnectToAda()
+    setTimeout(() => setLoading(false), 3000);
     return () => {
       subscription.remove();
     };
@@ -46,6 +50,15 @@ export default function App() {
   useEffect(() => {
       GetDataTimeInterval()
   }, [])
+  if (isLoading)
+    {
+      return (
+          <View style={[styles.container, styles.horizontal]}>
+            <ActivityIndicator size="large" color="#FFB267" />
+          </View>
+        )
+    }
+  else {
   return (
     <Provider store={store}>
       <GestureHandlerRootView style={{ flex: 1 }}>
@@ -60,6 +73,7 @@ export default function App() {
     </Provider>
     
   );
+}
 }
 
 

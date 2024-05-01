@@ -1,10 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { useState, useEffect } from 'react';
-import DataLineChart from '../components/Chart/DataLineChart';
-import { useSelector } from 'react-redux';
-import { selectHumidList, selectTemperList, selectLightList } from '../helper/globalState/GlobalState';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import HumidChart from '../components/Chart/HumidChart';
+import LightStrengthChart from '../components/Chart/LightStrengthChart';
+import TemperatureChart from '../components/Chart/TemperatureChart';
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -15,6 +13,11 @@ const styles = StyleSheet.create({
       paddingBottom: 50,
       paddingLeft: 20,
       paddingRight: 20,
+    },
+    subcontainer: {
+      flex: 0.8,
+      backgroundColor: 'transparent',
+      borderColor: '#fff',
     },
     title: {
       fontSize: 28, 
@@ -30,11 +33,22 @@ export default function FindDevice() {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Find Device</Text>
-        <View style={styles.container}>
-            <HumidChart
-            />
-            <StatusBar style="auto" />
-        </View>
+        
+        <ScrollView style={styles.subcontainer}
+          contentContainerStyle = {
+            {
+            flexDirection:"row",
+            alignItems: 'center',
+            justifyContent: 'space-around',
+            gap:10,
+            }}>
+            <View style={{flexDirection: "column"}}>
+            <HumidChart/> 
+            <LightStrengthChart/>
+            <TemperatureChart></TemperatureChart>
+            </View>
+        </ScrollView>
+        <StatusBar style="auto" />
       </View>
       
     );
