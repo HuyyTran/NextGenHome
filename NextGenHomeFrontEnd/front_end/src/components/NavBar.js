@@ -9,10 +9,10 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { useTheme } from "react-native-paper";
 
 //*Screen name
-const homeName = "HomePage";
-const controlPanelName = "ControlPanel";
-const userSettingName = "UserSetting";
-const findDeviceName = "FindDevice";
+const homeName = "Home";
+const controlPanelName = "Control Panel";
+const userSettingName = "User Setting";
+const findDeviceName = "Find Device";
 
 export default function NavBar() {
   //TODO: Screen to screen navigation

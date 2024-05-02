@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     container: {
         flex:0.5, 
         height:120, 
-        width: "50%",
+        width: "60%",
         gap:5,
         flexDirection: 'column',
         justifyContent: 'space-around',

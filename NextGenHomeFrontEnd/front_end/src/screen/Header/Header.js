@@ -1,6 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Pressable, Animated,} from 'react-native';
-import * as React from 'react';
+import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { ChevronLeft, Bell  } from 'lucide-react-native';
 
@@ -58,7 +57,7 @@ export default function Header({title}) {
     }
     const onGoToNotification = () =>
     {
-
+        navigation.navigate('Notification');
     }
     return (
     <View style={styles.container}>
