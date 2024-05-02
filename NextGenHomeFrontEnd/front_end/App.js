@@ -1,15 +1,17 @@
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, AppState, View, ActivityIndicator} from 'react-native';
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigationContainerRef} from '@react-navigation/native';
 import NavBar from './src/components/NavBar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ConnectToAda, Disconnect } from './src/router/MQTTClient';
 import {useRef, useState, useEffect} from 'react'
 import { Provider } from 'react-redux';
 import store from './src/helper/ReduxStore';
-
 import GetDataTimeInterval from './src/helper/GetDataTimeInterval';
+import Notification from './src/screen/Notification/Notification';
+import StackNav from './src/constants/StackNav';
 
 const styles = StyleSheet.create({
     container: {
@@ -63,10 +65,19 @@ export default function App() {
     <Provider store={store}>
       <GestureHandlerRootView style={{ flex: 1 }}>
       {    
+
         <NavigationContainer styles={styles.container}>
           {
-            <NavBar></NavBar>
+            <StackNav.Navigator screenOptions={{headerShown: false}}>
+              <StackNav.Screen component={NavBar} name="NavBar"/>
+              <StackNav.Screen
+                  component={Notification}
+                  name="Notification"
+              />
+            </StackNav.Navigator>
+            
           }
+
         </NavigationContainer>
       }
       </GestureHandlerRootView>

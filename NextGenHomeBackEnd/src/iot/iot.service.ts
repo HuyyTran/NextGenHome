@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Injectable } from '@nestjs/common';
+import { Injectable, OnModuleInit } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import * as mqtt from 'mqtt';
 import { AiotHumiData, AiotLightData, AiotTempData } from './iot.model';
@@ -13,7 +13,12 @@ export class IotService {
   // private temps: AiotTempData[] = [];
 
   constructor(private configService: ConfigService) {}
-
+  
+  onModuleInit()
+  {
+    //*(to lazy to use postman so write this xD)
+    this.connect()
+  }
   connect() {
     const username = this.configService.get<string>('ADAFRUIT_IO_USERNAME');
     const password = this.configService.get<string>('ADAFRUIT_IO_KEY');

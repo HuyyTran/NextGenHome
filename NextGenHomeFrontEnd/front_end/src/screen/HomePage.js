@@ -20,12 +20,13 @@ import { useSelector } from 'react-redux'
 import HumidChart from '../components/Chart/HumidChart';
 import LightStrengthChart from '../components/Chart/LightStrengthChart';
 import TemperatureChart from '../components/Chart/TemperatureChart';
+import Header from './Header/Header';
 const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#211D1D',
       flexDirection:"column",
-      alignItems: 'stretch',
+      alignItems: 'center',
       justifyContent: 'center',
       paddingTop: 20,
       paddingBottom: 50,
@@ -75,7 +76,7 @@ export default function HomePage() {
               source={BedroomBG}
             >
           </Image >
-          <Text style={styles.title}>Home Screen</Text>
+          <Header title = "Home" ></Header>
           <ScrollView 
           style={styles.subcontainer}
           contentContainerStyle = {

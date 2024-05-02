@@ -1,6 +1,5 @@
 import { StyleSheet, View, Text, Modal, Pressable, Animated, Button} from 'react-native';
 import * as React from 'react';
-import { Switch} from 'react-native-paper';
 import {useState} from 'react';
 import AuthChecker from '../../helper/AuthChecker';
 import PasswordContainer from './PasswordContainer';

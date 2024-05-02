@@ -1,6 +1,7 @@
 import { changeLightColor,changeLightToggle,changeLightStrength,
     changePurifierTemperatureCelcius, 
-    changeHumidityPercentage,changeFanStrength,changeDoorToggle } 
+    changeHumidityPercentage,changeFanStrength,changeDoorToggle, 
+    addToNotificationList} 
 from "./globalState/GlobalState";
 import store from './ReduxStore';
 export default function AdjustGlobalState(arrivedTopic, messageData)
@@ -20,6 +21,18 @@ export default function AdjustGlobalState(arrivedTopic, messageData)
         break;
 
       case 'aiot-supporter':
+        const newDate = new Date();
+        const dateTime = newDate.getDate() + "/"
+        + (newDate.getMonth()+1)  + "/" 
+        + newDate.getFullYear() + " at "  
+        + newDate.getHours() + ":"  
+        + newDate.getMinutes() + ":" 
+        + newDate.getSeconds();
+        const data = {
+          value: messageData,
+          date: dateTime
+        }
+        store.dispatch(addToNotificationList(data));
         break;
 
       case 'aiot-ai':
