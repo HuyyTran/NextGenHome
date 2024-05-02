@@ -12,6 +12,7 @@
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
     "@react-native-async-storage/async-storage": "^1.23.1",
     "@react-native-community/cli": "^13.6.4",
+    "@react-navigation/bottom-tabs": "^6.5.20",
     "@react-navigation/material-bottom-tabs": "^6.2.28",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
