@@ -11,6 +11,7 @@ const initialState = {
     humidList: [],
     temperList: [],
     lightList: [],
+    notificationList:[]
 }
 export const globalStateSlice = createSlice({
     name: 'globalState',
@@ -47,13 +48,21 @@ export const globalStateSlice = createSlice({
         changeTemperList: (state, action) => {
             state.temperList = action.payload
         },
+        addToNotificationList: (state, action) => {
+            state.notificationList.push(action.payload)
+            console.log(state.notificationList[0] === action.payload)
+        },
+        removeFromNotificationListByIndex: (state, action) => {
+            state.notificationList.splice(action.payload, 1)
+        },
     },
 })
 
 export const {changeLightStrength, changeLightToggle,
     changeLightColor,changeHumidityPercentage,
     changeFanStrength,changePurifierTemperatureCelcius,
-    changeDoorToggle, changeHumidList, changeLightList, changeTemperList
+    changeDoorToggle, changeHumidList, changeLightList, 
+    changeTemperList, addToNotificationList, removeFromNotificationListByIndex
 } = globalStateSlice.actions
 
 export const selectLightStrength = state => state.lightStrengthLux
@@ -66,5 +75,6 @@ export const selectDoorToggle = state => state.doorToggle
 export const selectHumidList = state => state.humidList
 export const selectTemperList = state => state.temperList
 export const selectLightList = state => state.lightList
+export const selectNotificationList = state => state.notificationList
 
 export default globalStateSlice.reducer
