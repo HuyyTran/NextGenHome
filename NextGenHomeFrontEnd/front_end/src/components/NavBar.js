@@ -12,7 +12,7 @@ import { useTheme } from "react-native-paper";
 const homeName = "HomePage";
 const controlPanelName = "ControlPanel";
 const userSettingName = "UserSetting";
-const findDeviceName = "findDevice";
+const findDeviceName = "FindDevice";
 
 export default function NavBar() {
   //TODO: Screen to screen navigation
@@ -24,6 +24,7 @@ export default function NavBar() {
   return (
     <Tab.Navigator
       //Router settings for navigation:
+      
       initialRouteName={HomePage}
       backBehavior="history"
       screenOptions={({ route }) => ({
@@ -49,15 +50,14 @@ export default function NavBar() {
           return <Ionicons name={iconName} size={iconSize} color={color} />;
         },
       })}
-      //Design settings for navigation:
       activeColor="#FFB267"
       inactiveColor="#F8F8F8"
       barStyle={{ backgroundColor: "#282424" }}
       labeled={false} //*Text for screen name under icon is not visible
       theme={theme}
     >
-      {<Tab.Screen name={homeName} component={HomePage} />}
-      {<Tab.Screen name={findDeviceName} component={FindDevice} />}
+      {<Tab.Screen name={homeName} component={HomePage}/>}
+      {<Tab.Screen name={findDeviceName} component={FindDevice} options={{ title: 'HEHE app' }} />}
       {<Tab.Screen name={controlPanelName} component={ControlPanel} />}
       {<Tab.Screen name={userSettingName} component={UserSetting} />}
 
