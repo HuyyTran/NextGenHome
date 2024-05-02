@@ -3,13 +3,15 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import HumidChart from '../components/Chart/HumidChart';
 import LightStrengthChart from '../components/Chart/LightStrengthChart';
 import TemperatureChart from '../components/Chart/TemperatureChart';
+import Header from './Header/Header';
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#282424',
+      backgroundColor: '#211D1D',
+      flexDirection:"column",
       alignItems: 'center',
       justifyContent: 'center',
-      paddingTop: 50,
+      paddingTop: 20,
       paddingBottom: 50,
       paddingLeft: 20,
       paddingRight: 20,
@@ -32,7 +34,7 @@ const styles = StyleSheet.create({
 export default function FindDevice() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Find Device</Text>
+        <Header title = "Find Device" ></Header>
         
         <ScrollView style={styles.subcontainer}
           contentContainerStyle = {

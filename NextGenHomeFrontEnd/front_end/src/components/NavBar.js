@@ -60,7 +60,6 @@ export default function NavBar() {
       {<Tab.Screen name={findDeviceName} component={FindDevice} options={{ title: 'HEHE app' }} />}
       {<Tab.Screen name={controlPanelName} component={ControlPanel} />}
       {<Tab.Screen name={userSettingName} component={UserSetting} />}
-
     </Tab.Navigator>
   );
 }
