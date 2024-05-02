@@ -1,6 +1,6 @@
 import { StyleSheet, View, Text, Modal, Button} from 'react-native';
 import {useState, useRef} from 'react';
-import Header from '../../screen/Header/Header';
+import Header from '../Header/Header';
 
 const styles = StyleSheet.create({
     container: {
