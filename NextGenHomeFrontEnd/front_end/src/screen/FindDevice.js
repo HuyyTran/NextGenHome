@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#282424',
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'space-around',
       paddingTop: 50,
       paddingBottom: 50,
       paddingLeft: 20,
@@ -39,14 +39,14 @@ export default function FindDevice() {
             {
             flexDirection:"row",
             alignItems: 'center',
-            justifyContent: 'space-around',
+            justifyContent: 'center',
             gap:10,
             }}>
-            <View style={{flexDirection: "column"}}>
+        <View style={{flexDirection: "column"}}>
             <HumidChart/> 
             <LightStrengthChart/>
             <TemperatureChart></TemperatureChart>
-            </View>
+        </View>
         </ScrollView>
         <StatusBar style="auto" />
       </View>
