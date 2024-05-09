@@ -78,13 +78,6 @@ export default function DoorControlContainer(
         onSubmitPassword()
     };
     const onSubmitPassword = () => {
-        if (isEnabled)
-        {
-            setIsEnabled(previousState => !previousState);
-            openModal("Door locked");
-            setPassword("")
-            return;
-        }
         if (password.length <= 0)
         {
             openModal("Please enter a password")
@@ -101,6 +94,9 @@ export default function DoorControlContainer(
             openModal("Incorrect password")
         }
         setPassword("")
+        setTimeout(() => {
+            setIsEnabled(previousState => !previousState);
+        }, 500);
     }
     let lockIcon = <DoorClosed color={"#F8F8F8"}></DoorClosed>
     if (isEnabled)

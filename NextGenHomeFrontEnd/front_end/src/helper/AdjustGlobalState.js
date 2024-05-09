@@ -44,11 +44,14 @@ export default function AdjustGlobalState(arrivedTopic, messageData)
         break;
 
       case 'aiot-ledcolor':
-        store.dispatch(changeLightColor("#" + messageData));
+        let color = messageData;
+        if (color.charAt(0) !== "#") { 
+          store.dispatch(changeLightColor("#" + messageData));
+        }
         break;
       case 'aiot-led':
         store.getState()
-        store.dispatch(changeLightToggle(messageData === "1" ? true : false));
+        store.dispatch(changeLightToggle(messageData === "0" ? false : true));
         break;
       default:
         console.log("Unknown topic type: " + arrivedTopic);

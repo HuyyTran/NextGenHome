@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 });
 export default function LightStrengthChart() {
     const lightData = useSelector(selectLightList);
-    console.log(lightData);
+    // console.log(lightData);
     return (
         <View styles ={styles.container}>
             <DataLineChart

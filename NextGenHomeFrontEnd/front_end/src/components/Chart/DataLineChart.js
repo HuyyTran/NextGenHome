@@ -5,7 +5,7 @@ import { LineChart } from "react-native-gifted-charts";
 
 export default function DataLineChart({ chartData, chartSuffix}) {
     let largestValue = 0
-    console.log(chartData);
+    // console.log(chartData);
     for (value in chartData) {
         if (chartData[value].value > largestValue) {
             largestValue = chartData[value].value

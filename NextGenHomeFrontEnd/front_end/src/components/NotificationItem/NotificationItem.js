@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
     },
     title: {
-        flex: 0.4,
+        flex: 0.5,
         fontSize: 16,
         textAlign: 'left',
         color: '#F8F8F8',

@@ -51,6 +51,7 @@ export default function LEDColorPicker({onColorChange, initialLEDColor}) {
     
     if (initialLEDColor != undefined)
     {
+        console.log(initialLEDColor);
         pickerRef.current = colorKit.HEX(initialLEDColor);
     }
     return (

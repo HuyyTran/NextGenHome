@@ -50,7 +50,7 @@ export const globalStateSlice = createSlice({
         },
         addToNotificationList: (state, action) => {
             state.notificationList.push(action.payload)
-            console.log(state.notificationList[0] === action.payload)
+            // console.log(state.notificationList[0] === action.payload)
         },
         removeFromNotificationListByIndex: (state, action) => {
             state.notificationList.splice(action.payload, 1)

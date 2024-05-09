@@ -1,7 +1,7 @@
 import { EpochToDate, EpochToDateString } from "./EpochToDate";
 
 export default function GetResponseAdapter(responseArray){
-    responseArray = responseArray.slice(-30, -1);
+    responseArray = responseArray.slice(1, 30);
     let resultArray = []
     for (i in responseArray) {
         const newValue = parseFloat(responseArray[i].value);

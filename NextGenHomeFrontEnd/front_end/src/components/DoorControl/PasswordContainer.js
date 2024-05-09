@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, TextInput, Pressable, Animated} from 'react-native';
+import { StyleSheet, View, Keyboard,Text, TextInput, Pressable, Animated} from 'react-native';
 import * as React from 'react';
 import {Switch} from 'react-native-paper';
 import {useState} from 'react';
@@ -77,8 +77,9 @@ export default function PasswordContainer(
             onChangeText={setPassword} 
             style={styles.input} 
             placeholder="Enter Password"
-            placeholderTextColor="#aaa"
-            keyboardType="numeric"
+            placeholderTextColor="#aaaaaa"
+            keyboardType="numbers-and-punctuation"
+            onSubmitEditing={Keyboard.dismiss}
         /> 
         <Pressable style= {styles.button} onPressIn={fadeIn} onPressOut={fadeOut}>
             <Animated.View
