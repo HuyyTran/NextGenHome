@@ -14,7 +14,6 @@ export default function DataLineChart({ chartData, chartSuffix}) {
     if (chartData.length === 0) {
       return (
           <View style={{
-            flex: 1,
             justifyContent: "center",
             alignItems: "center",
             height: 250,

@@ -16,14 +16,16 @@ const styles = StyleSheet.create({
     sub_container : {
         flex: 0.8,
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
+        alignContent: 'center',
         backgroundColor: 'transparent',
     },
     title: {
-        flex: 0.5,
+        flex: 1,
         fontSize: 16,
         textAlign: 'left',
+        paddingVertical: 10,
         color: '#F8F8F8',
     },
     button:{

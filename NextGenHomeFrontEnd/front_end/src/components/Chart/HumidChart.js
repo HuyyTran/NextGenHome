@@ -5,10 +5,8 @@ import { selectHumidList } from "../../helper/globalState/GlobalState";
 
 const styles = StyleSheet.create({
     container: {
-        flex: 0.6,
         height: 500,
         flexDirection: "column",
-        justifyContent: "space-around",
         alignItems: "center",
         backgroundColor: "#282424",
         borderWidth: 1,

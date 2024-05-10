@@ -17,9 +17,8 @@ const styles = StyleSheet.create({
       paddingRight: 20,
     },
     subcontainer: {
-      flex: 0.8,
+      flex: 1,
       backgroundColor: 'transparent',
-      borderColor: '#fff',
     },
     title: {
       fontSize: 28, 
@@ -35,13 +34,10 @@ export default function FindDevice() {
     return (
       <View style={styles.container}>
         <Header title = "Find Device" ></Header>
-        
-        <ScrollView style={styles.subcontainer}
+        <View style={styles.subcontainer}>
+          <ScrollView
           contentContainerStyle = {
             {
-            flexDirection:"row",
-            alignItems: 'center',
-            justifyContent: 'space-around',
             gap:10,
             }}>
             <View style={{flexDirection: "column"}}>
@@ -50,6 +46,7 @@ export default function FindDevice() {
             <TemperatureChart></TemperatureChart>
             </View>
         </ScrollView>
+        </View>
         <StatusBar style="auto" />
       </View>
       

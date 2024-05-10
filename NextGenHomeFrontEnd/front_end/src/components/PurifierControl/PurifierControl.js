@@ -8,7 +8,8 @@ import { Wind } from 'lucide-react-native';
 const styles = StyleSheet.create({
     container: {
         flex:0.5, 
-        height:180, 
+        height: 180, 
+        width: 300,
         gap:5,
         flexDirection: 'column',
         justifyContent: 'space-around',

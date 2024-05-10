@@ -34,11 +34,10 @@ const styles = StyleSheet.create({
       paddingRight: 20,
     },
     subcontainer: {
-      flex: 0.8,
+      flex: 1,
       marginTop: 150,
       backgroundColor: 'transparent',
-      flexDirection: 'column',
-      borderColor: '#fff',
+      gap:10,
     },
     title: {
       marginTop: 20,
@@ -76,18 +75,14 @@ export default function HomePage() {
               source={BedroomBG}
             >
           </Image >
-          <Header title = "Home" ></Header>
-          <ScrollView 
-          style={styles.subcontainer}
-          contentContainerStyle = {
+        <Header title="Home" ></Header>
+        <View style={styles.subcontainer}>
+          <ScrollView contentContainerStyle = {
             {
-              flexDirection:"column",
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap:10,
-            }
-          }>
-            <View style={{flex: 0.6,
+            gap:20,
+            }}  >
+            <View style={{flexDirection: "column", alignItems:'center', gap:10}}>
+            <View style={{flex: 1,
                 backgroundColor: "transparent",
                 flexDirection:"row",
                 alignItems: 'center',
@@ -106,28 +101,20 @@ export default function HomePage() {
             <LightStrengthCard
               deviceName="Illuminance" 
               initialLightStrength={lightStrengthLux}
-            >
-            </LightStrengthCard>
-            <LightingControl 
-                deviceName="LED Light" 
-                lightStrength={lightStrengthLux}
-                initialLEDColor={lightColor}
-                initialToggleState={lightToggle}
-                onLightChange={PostLightChange}
-                onLEDColorChange={PostColorChange}
-              ></LightingControl>
-            <FanControl
-              deviceName="Fan"
-              initialFanStrength={fanStrength}
-              onFanStrengthChange={PostFanChange}
-            ></FanControl>
-            <DoorControl
-              deviceName="Door Lock"
-              initialToggleState={doorToggle}
-              onToggleChange={PostDoorToggle}
-            ></DoorControl>
+              >
+
+              </LightStrengthCard>
+            </View >
+            <View style={{flex: 1,backgroundColor: "#282424",
+              borderWidth: 1,
+              borderRadius: 32,} }>
+              <HumidChart/> 
+              <LightStrengthChart/>
+              <TemperatureChart />
+            </View>
           </ScrollView>
-          <StatusBar style="auto" />
+        </View>
+        <StatusBar style="auto" />
         </View>
       );
     }
