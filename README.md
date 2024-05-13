@@ -19,12 +19,12 @@ The NextGenHome Project is an innovative home automation system integrating AI a
 ## Getting Started
 This repository contains multiple components that are structured into separate directories:
 
-### YolohomeBackend
-Located under `YolohomeBackend/`, the backend is built with NestJS and handles all IoT communications and server-side logic.
+### NextGenHome Backend
+Located under `NextGenBackend/`, the backend is built with NestJS and handles all IoT communications and server-side logic.
 - Detailed installation and running instructions are provided in the README within this folder.
 
-### YolohomeFrontend
-Found under `YolohomeFrontend/`, the frontend is a React Native application providing a user-friendly interface for interacting with the home automation system.
+### NextGenHome Frontend
+Found under `NextGenFrontend/`, the frontend is a React Native application providing a user-friendly interface for interacting with the home automation system.
 - Setup and execution details can be found in the README of this directory.
 
 
