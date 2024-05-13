@@ -1,6 +1,6 @@
-YolohomeProject/
+NextGenHomeProject/
 │
-├── YolohomeBackend/ (formerly dadn-sample1)
+├── NextGenHomeBackend/ (formerly dadn-sample1)
 │   ├── node_modules/
 │   ├── src/
 │   │   ├── iot/
@@ -23,7 +23,7 @@ YolohomeProject/
 │   ├── tsconfig.json
 │   └── yarn.lock
 │
-├── YolohomeFrontend/ (formerly YolohomeReactNative/front-end)
+├── NextGenHomeFrontend/ (formerly YolohomeReactNative/front-end)
 │   ├── src/
 │   │   ├── assets/
 │   │   │   ├── image/
