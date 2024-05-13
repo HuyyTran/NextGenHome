@@ -2,7 +2,7 @@
 
 ## About the project
 
-The NextGenHome Project is an innovative home automation system integrating AI and IoT technologies to enhance home management through advanced automation and user interaction capabilities. This project is structured into two main components: the backend and the frontend, each residing in its own subfolder.
+The NextGenHome Project is an innovative home automation system integrating AI and IoT technologies to enhance home management through advanced automation and user interaction capabilities. 
 
 ## Table of Contents
 - [Features](#Features)
